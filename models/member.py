@@ -40,3 +40,7 @@ class MemberModel(db.Model):
     @classmethod
     def find_by_id(cls, member_id):
         return cls.query.filter_by(member_id=member_id).first()
+
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()

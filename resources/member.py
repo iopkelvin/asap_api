@@ -23,3 +23,8 @@ class MemberId(Resource):
 
         return json.dumps(member, default=myconverter), 201  # created status code
 
+
+class ItemList(Resource):
+    def get(self):
+        # List comprehensions version
+        return {'members': [member.json() for member in MemberModel.find_all()]}
