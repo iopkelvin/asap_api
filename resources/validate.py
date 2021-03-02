@@ -18,5 +18,4 @@ class Validate(Resource):
         else:
             message = "Wrong member id"
 
-
         return render_template('form.html', message=message)

@@ -7,7 +7,10 @@ from flask_restful import Api
 from resources.member import MemberId
 from resources.validate import Validate
 
-
+from flask_caching import Cache
+config = {"CACHE_TYPE": "simple",
+          "CACHE_DEFAULT_TIMEOUT": 30
+          }
 app = Flask(__name__)
 
 app.config['DEBUG'] = True  # debug for error messages (html page)
@@ -18,6 +21,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Allows flask extensions to raise their own exceptions/errors
 app.config['PROPAGATE_EXCEPTIONS'] = True
+
+# Added 30 seconds caching
+app.config.from_mapping(config)
+app.cache = Cache(app)
+
 app.secret_key = 'kelvin'
 api = Api(app)
 
