@@ -5,7 +5,7 @@ from marshmallow import Schema, fields
 class MemberSchema(Schema):
     first_name = fields.String()
     last_name = fields.String()
-    dob = fields.Date()
+    dob = fields.DateTime('%m-%d-%Y')
     country = fields.String()
 
 
@@ -14,7 +14,7 @@ class MemberModel(db.Model):
     member_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
-    dob = db.Column(db.Date)
+    dob = db.Column(db.DateTime('%m-%d-%Y'))
     country = db.Column(db.String(2))
 
     # Parameters to be expected
