@@ -4,6 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+flask = "*"
+psycopg2 = "*"
+uwsgi = "*"
+marshmallow = "*"
+flask-restful = "*"
 
 [dev-packages]
 
