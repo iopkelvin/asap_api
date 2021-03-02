@@ -11,7 +11,7 @@ class MemberSchema(Schema):
 
 class MemberModel(db.Model):
     __tablename__ = 'members'
-    member_id = db.Column(db.Integer)
+    member_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
     dob = db.Column(db.String)
