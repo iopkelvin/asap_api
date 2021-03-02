@@ -29,7 +29,7 @@ class MemberModel(db.Model):
     def json(self):
         return {'first_name': self.first_name,
                 'last_name': self.last_name,
-                'dob': self.dob,
+                'dob': str(self.dob),
                 'country': self.country
                 }
 
