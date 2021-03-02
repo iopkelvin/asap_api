@@ -21,7 +21,7 @@ class MemberId(Resource):
         except ValueError:
             return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
-        return json.dumps(member, default=myconverter), 201  # created status code
+        return member.json(), 201  # created status code
 
 
 class MemberList(Resource):
