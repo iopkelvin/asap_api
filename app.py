@@ -4,7 +4,7 @@ from flask import Flask
 from flask_restful import Api
 # from flask_jwt import JWT  # Security
 # from security import authenticate, identity  # Modules for JWT
-from resources.member import MemberId
+from resources.member import MemberId, MemberList
 from resources.validate import Validate
 
 from flask_caching import Cache
@@ -33,6 +33,7 @@ api = Api(app)
 
 api.add_resource(MemberId, '/<int:member_id>')  # http://127.0.0.1:5000/..
 api.add_resource(Validate, '/validate')
+api.add_resource(MemberList, '/members')
 
 if __name__ == '__main__':
     # If app.py is run, then the following will be run.
