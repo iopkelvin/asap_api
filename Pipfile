@@ -9,6 +9,8 @@ psycopg2 = "*"
 uwsgi = "*"
 marshmallow = "*"
 flask-restful = "*"
+flask-jwt = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
