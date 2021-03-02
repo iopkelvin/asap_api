@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from flask_restful import Resource
 # from flask_jwt import jwt_required
-from models.member import MemberModel, MemberSchema
+from models.member import MemberModel
 from marshmallow import ValidationError
 
 

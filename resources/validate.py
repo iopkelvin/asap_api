@@ -1,9 +1,8 @@
 from flask import request, render_template
 from flask_restful import Resource
-# from flask_jwt import jwt_required
+
 from models.member import MemberModel
-from marshmallow import ValidationError
-from wtforms import Form, TextField, TextAreaField, validators, StringField
+
 
 # class ReusableForm(Form):
 #     member_id = TextField('member_id:' validators=[validators.required()])
