@@ -9,9 +9,8 @@ FORM_ARGS = {
     'member_id': fields.Integer(required=True)}
 
 
-class MemberId(Resource):
+class Validate(Resource):
     def post(self, member_id):
-
         member_id = request.form.get('member_id')
 
         if MemberModel.find_by_id(member_id):
