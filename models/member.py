@@ -2,11 +2,11 @@ from db import db
 from marshmallow import Schema, fields
 
 
-class MemberSchema(Schema):
-    first_name = fields.String()
-    last_name = fields.String()
-    dob = fields.DateTime(format='%Y-%m-%d')
-    country = fields.String()
+# class MemberSchema(Schema):
+#     first_name = fields.String()
+#     last_name = fields.String()
+#     dob = fields.DateTime(format='%Y-%m-%d')
+#     country = fields.String()
 
 
 class MemberModel(db.Model):

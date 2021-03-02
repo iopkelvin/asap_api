@@ -3,17 +3,17 @@ from flask_restful import Resource
 # from flask_jwt import jwt_required
 from models.member import MemberModel, MemberSchema
 from marshmallow import ValidationError
+from wtforms import Form, TextField, TextAreaField, validators, StringField
+
+# class ReusableForm(Form):
+#     member_id = TextField('member_id:' validators=[validators.required()])
 
 
 class MemberId(Resource):
     def post(self, member_id):
+        # form = ReusableForm(request.form)
+
         json_data = request.get_json()
-        # try:  # Make sure that input in equal to schema
-        #     data = MemberSchema().load(json_data)
-        # except ValidationError as err:
-        #     response = jsonify(err.messages)
-        #     response.status_code = 422
-        #     return response
 
         member = MemberModel(member_id, **json_data)
         try:
@@ -22,4 +22,3 @@ class MemberId(Resource):
             return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
         return member.json(), 201  # created status code
-
