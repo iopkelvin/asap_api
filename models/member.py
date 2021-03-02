@@ -18,7 +18,8 @@ class MemberModel(db.Model):
     country = db.Column(db.String(2))
 
     # Parameters to be expected
-    def __init__(self, first_name, last_name, dob, country):
+    def __init__(self, member_id, first_name, last_name, dob, country):
+        self.member_id = member_id
         self.first_name = first_name
         self.last_name = last_name
         self.dob = dob
