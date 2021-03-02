@@ -1,7 +1,7 @@
-from flask import request, jsonify
+from flask import request, render_template
 from flask_restful import Resource
 # from flask_jwt import jwt_required
-from models.member import MemberModel, MemberSchema
+from models.member import MemberModel
 from marshmallow import ValidationError
 from wtforms import Form, TextField, TextAreaField, validators, StringField
 
@@ -21,4 +21,4 @@ class MemberId(Resource):
         except ValueError:
             return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
-        return member.json(), 201  # created status code
+        return render_template('form.html')
