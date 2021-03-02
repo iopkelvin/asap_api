@@ -4,7 +4,7 @@ from marshmallow import Schema, fields
 
 class MemberSchema(Schema):
     first_name = fields.String()
-    last_name = fields.String()g
+    last_name = fields.String()
     dob = fields.Date()
     country = fields.String()
 
