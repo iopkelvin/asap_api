@@ -1,19 +1,14 @@
 from flask import request, jsonify
 from flask_restful import Resource
+import json
 # from flask_jwt import jwt_required
 from models.member import MemberModel
-from marshmallow import ValidationError
 
 
 class MemberId(Resource):
     def post(self, member_id):
-        json_data = request.get_json()
-        # try:  # Make sure that input in equal to schema
-        #     data = MemberSchema().load(json_data)
-        # except ValidationError as err:
-        #     response = jsonify(err.messages)
-        #     response.status_code = 422
-        #     return response
+        json_data = json.dumps(request.get_json(), indent=4, sort_keys=True, default=str)
+
 
         member = MemberModel(member_id, **json_data)
         try:

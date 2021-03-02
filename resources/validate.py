@@ -2,15 +2,16 @@ from flask import request, render_template
 from flask_restful import Resource
 
 from models.member import MemberModel
+from webargs import flaskparser, fields
 
 
-# class ReusableForm(Form):
-#     member_id = TextField('member_id:' validators=[validators.required()])
+FORM_ARGS = {
+    'member_id': fields.Integer(required=True)}
 
 
 class MemberId(Resource):
     def post(self, member_id):
-        # form = ReusableForm(request.form)
+
 
         json_data = request.get_json()
 

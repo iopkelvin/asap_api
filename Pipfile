@@ -12,6 +12,7 @@ flask-restful = "*"
 flask-jwt = "*"
 flask-sqlalchemy = "*"
 wtforms = "*"
+webargs = "*"
 
 [dev-packages]
 
