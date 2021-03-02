@@ -7,7 +7,7 @@ from models.member import MemberModel
 
 class MemberId(Resource):
     def post(self, member_id):
-        json_data = json.dumps(request.get_json(), indent=4, sort_keys=True, default=str)
+        json_data = request.get_json()
 
 
         member = MemberModel(member_id, **json_data)
@@ -16,5 +16,5 @@ class MemberId(Resource):
         except ValueError:
             return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
-        return member.json(), 201  # created status code
+        return jsonify(member), 201  # created status code
 
