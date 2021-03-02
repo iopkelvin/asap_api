@@ -3,7 +3,10 @@ from marshmallow import Schema, fields
 
 
 class MemberSchema(Schema):
-
+    first_name = fields.String(required=True)
+    last_name = fields.String(required=True)
+    dob = fields.Date(required=True)
+    country = fields.String(required=True)
 
 
 class MemberModel(db.Model):
