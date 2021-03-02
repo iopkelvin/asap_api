@@ -12,13 +12,12 @@ FORM_ARGS = {
 class MemberId(Resource):
     def post(self, member_id):
 
+        member_id = request.form.get('member_id')
 
-        json_data = request.get_json()
+        if MemberModel.find_by_id(member_id):
+            message = "Correct member id"
+        else:
+            message = "Wrong member id"
 
-        member = MemberModel(member_id, **json_data)
-        try:
-            member.save_to_db()
-        except ValueError:
-            return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
-        return render_template('form.html')
+        return render_template('form.html', message=message)

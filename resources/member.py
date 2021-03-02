@@ -1,8 +1,13 @@
 from flask import request, jsonify
 from flask_restful import Resource
 import json
+import datetime
 # from flask_jwt import jwt_required
 from models.member import MemberModel
+
+def myconverter(o):
+    if isinstance(o, datetime.datetime):
+        return o.__str__()
 
 
 class MemberId(Resource):
@@ -16,5 +21,5 @@ class MemberId(Resource):
         except ValueError:
             return {"message": "An error occurred inserting the item."}, 500  # Internal server error
 
-        return jsonify(member), 201  # created status code
+        return json.dumps(member, default=myconverter), 201  # created status code
 

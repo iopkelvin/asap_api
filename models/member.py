@@ -5,7 +5,7 @@ from marshmallow import Schema, fields
 # class MemberSchema(Schema):
 #     first_name = fields.String()
 #     last_name = fields.String()
-#     dob = fields.DateTime(format='%Y-%m-%d')
+#     dob = fields.DateTime()
 #     country = fields.String()
 
 
@@ -36,3 +36,7 @@ class MemberModel(db.Model):
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
+
+    @classmethod
+    def find_by_id(cls, member_id):
+        return cls.query.filter_by(member_id=member_id).first()
