@@ -22,7 +22,7 @@ api = Api(app)
 
 # jwt = JWT(app, authenticate, identity)  # auth
 
-api.add_resource(MemberId, '/<int:member_id>')  # http://127.0.0.1:5000/member/..
+api.add_resource(MemberId, '/<int:member_id>')  # http://127.0.0.1:5000/..
 # api.add_resource(MemberId, '/member_id/validate')
 
 if __name__ == '__main__':
